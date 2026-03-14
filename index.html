@@ -231,10 +231,10 @@
                     <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                     @_crazytan
                 </a>
-                <span class="email-obf" onclick="this.textContent=atob('dGp0YW5qaWEudGFuQGdtYWlsLmNvbQ==')" title="Click to reveal" style="cursor:pointer">
+                <a href="#" class="email-obf" onclick="event.preventDefault();var e=atob('dGp0YW5qaWEudGFuQGdtYWlsLmNvbQ==');this.href='mailto:'+e;this.querySelector('span').textContent=e;this.onclick=null" title="Click to reveal">
                     <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                    click to reveal email
-                </span>
+                    <span>email</span>
+                </a>
             </div>
         </header>
 
@@ -245,12 +245,11 @@
                 <div class="project-header">
                     <span class="project-name"><a href="https://github.com/crazytan/KeeForge">KeeForge</a></span>
                     <div style="display:flex;gap:6px;">
-                        <span class="badge badge-live">App Store</span>
+                        <a href="https://apps.apple.com/us/app/keeforge/id6759309295" target="_blank" rel="noopener" style="text-decoration:none"><span class="badge badge-live">App Store</span></a>
                         <span class="badge badge-oss">GPLv3</span>
                     </div>
                 </div>
                 <p class="project-desc">Free, open-source KeePass password manager for iOS. AutoFill with Face ID, passkey support, zero tracking.</p>
-                <p style="margin-bottom:12px"><a href="https://apps.apple.com/us/app/keeforge/id6759309295" target="_blank" rel="noopener" style="font-family:'JetBrains Mono',monospace;font-size:0.8em;color:var(--accent);text-decoration:none;">↗ App Store</a></p>
                 <div class="project-tech">
                     <span class="tech-tag">Swift</span>
                     <span class="tech-tag">SwiftUI</span>
