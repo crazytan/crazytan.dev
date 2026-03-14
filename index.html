@@ -12,9 +12,9 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --bg: #0a0a0a;
-            --surface: #111111;
-            --border: #1a1a1a;
+            --bg: #0a0e17;
+            --surface: #0f1520;
+            --border: #1a2332;
             --text: #e5e5e5;
             --text-dim: #737373;
             --accent: #3b82f6;
@@ -191,7 +191,7 @@
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.7em;
             color: var(--text-dim);
-            background: var(--bg);
+            background: rgba(10, 14, 23, 0.8);
             padding: 2px 8px;
             border-radius: 3px;
             border: 1px solid var(--border);
@@ -231,10 +231,10 @@
                     <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                     @_crazytan
                 </a>
-                <a href="mailto:tjtanjia.tan@gmail.com">
+                <span class="email-obf" onclick="this.textContent=atob('dGp0YW5qaWEudGFuQGdtYWlsLmNvbQ==')" title="Click to reveal" style="cursor:pointer">
                     <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                    email
-                </a>
+                    click to reveal email
+                </span>
             </div>
         </header>
 
