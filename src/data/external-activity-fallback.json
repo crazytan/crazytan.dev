@@ -1,0 +1,25 @@
+{
+  "updatedAt": "2026-07-10T12:00:00-07:00",
+  "book": {
+    "kind": "book",
+    "title": "Julius Caesar (Annotated)",
+    "creator": "William Shakespeare",
+    "url": "https://www.goodreads.com/review/show/8085532257?utm_medium=api&utm_source=rss",
+    "status": "Recently read",
+    "date": "2025-11-19"
+  },
+  "movie": {
+    "kind": "movie",
+    "title": "笑の大学",
+    "url": "https://movie.douban.com/subject/1328665/",
+    "status": "Watched",
+    "date": "2026-06-14"
+  },
+  "game": {
+    "kind": "game",
+    "title": "007 初露锋芒 007 First Light",
+    "url": "https://www.douban.com/game/35259036/",
+    "status": "Played",
+    "date": "2026-07-07"
+  }
+}

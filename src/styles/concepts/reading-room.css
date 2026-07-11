@@ -1,0 +1,241 @@
+/* Hallmark · pre-emit critique: P5 H5 E4 S5 R5 V5 · genre: editorial · tone: warm restraint · macrostructure: Long Document · theme: Newsprint · enrichment: none · nav: N6 · footer: Ft4 · contrast: pass (40–41) · slop: pass (42–45) · honest: pass (46) · chrome: pass (47) · tokens: pass (48) · responsive: pass (49) · icons: pass (30) · mobile: pass (34, 49, 50–57) */
+[data-concept="reading-room"] .nav-mast {
+  display: grid;
+  gap: var(--space-xs);
+  width: min(100% - 2rem, 72rem);
+  margin-inline: auto;
+  padding-block: var(--space-lg) 0;
+  text-align: center;
+}
+
+[data-concept="reading-room"] .mast-line {
+  color: var(--color-neutral);
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-variant-caps: all-small-caps;
+  letter-spacing: 0.1em;
+}
+
+[data-concept="reading-room"] .mast-name {
+  font-family: var(--font-wordmark);
+  font-size: clamp(2.75rem, 8vw, 5.25rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 0.95;
+}
+
+[data-concept="reading-room"] .mast-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-xs) var(--space-lg);
+}
+
+[data-concept="reading-room"] .mast-nav a,
+[data-concept="reading-room"] .foot-dense a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  color: var(--color-ink-2);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  line-height: 1;
+  text-decoration-color: var(--color-rule-2);
+  text-decoration-thickness: var(--rule-hair);
+  text-underline-offset: var(--space-3xs);
+  white-space: nowrap;
+}
+
+[data-concept="reading-room"] .mast-rule {
+  height: var(--space-2xs);
+  border-block: var(--rule-hair) solid var(--color-ink);
+}
+
+[data-concept="reading-room"] .reading-room {
+  display: grid;
+  gap: var(--space-3xl);
+  width: min(100% - 2rem, 46rem);
+  margin-inline: auto;
+  padding-block: var(--space-3xl) var(--space-4xl);
+}
+
+[data-concept="reading-room"] .opening,
+[data-concept="reading-room"] .prose-section {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+[data-concept="reading-room"] .opening h1 {
+  max-width: 16ch;
+  font-family: var(--font-display);
+  font-size: var(--text-display-s);
+  font-weight: 300;
+  letter-spacing: -0.035em;
+  line-height: 1.04;
+}
+
+[data-concept="reading-room"] .lede {
+  max-width: 56ch;
+  color: var(--color-ink-2);
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 300;
+  line-height: 1.45;
+}
+
+[data-concept="reading-room"] .prose-section > h2 {
+  display: inline;
+  color: var(--color-accent);
+  font-family: var(--font-display);
+  font-size: var(--text-md);
+  font-variant-caps: all-small-caps;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1.2;
+}
+
+[data-concept="reading-room"] .prose-section > p {
+  max-width: 64ch;
+  color: var(--color-ink-2);
+}
+
+[data-concept="reading-room"] .project-list {
+  display: grid;
+  gap: var(--space-xl);
+  padding-block-start: var(--space-sm);
+}
+
+[data-concept="reading-room"] .project-entry {
+  display: grid;
+  gap: var(--space-sm);
+}
+
+[data-concept="reading-room"] .project-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-xs) var(--space-lg);
+  padding-block-end: var(--space-xs);
+  border-block-end: var(--rule-hair) solid var(--color-rule);
+}
+
+[data-concept="reading-room"] .project-heading h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+[data-concept="reading-room"] .project-heading a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+[data-concept="reading-room"] .project-heading span,
+[data-concept="reading-room"] .project-tags {
+  color: var(--color-neutral);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-variant-numeric: tabular-nums;
+}
+
+[data-concept="reading-room"] .project-entry > p:not(.project-tags) {
+  max-width: 62ch;
+  color: var(--color-ink-2);
+}
+
+[data-concept="reading-room"] .shelf {
+  display: grid;
+}
+
+[data-concept="reading-room"] .shelf > div {
+  display: grid;
+  grid-template-columns: minmax(5.5rem, 0.35fr) minmax(0, 1fr);
+  gap: var(--space-md);
+  padding-block: var(--space-md);
+  border-block-start: var(--rule-hair) solid var(--color-rule);
+}
+
+[data-concept="reading-room"] .shelf > div:last-child {
+  border-block-end: var(--rule-hair) solid var(--color-rule);
+}
+
+[data-concept="reading-room"] .shelf dt {
+  color: var(--color-ink);
+  font-weight: 600;
+}
+
+[data-concept="reading-room"] .shelf dd {
+  color: var(--color-neutral);
+}
+
+[data-concept="reading-room"] .activity-detail {
+  display: grid;
+  justify-items: start;
+  gap: var(--space-2xs);
+  min-width: 0;
+}
+
+[data-concept="reading-room"] .activity-title {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  color: var(--color-ink);
+  font-family: var(--font-display);
+  font-size: var(--text-md);
+  font-weight: 700;
+  line-height: 1.25;
+  text-decoration-color: var(--color-rule-2);
+  text-decoration-thickness: var(--rule-hair);
+  text-underline-offset: var(--space-3xs);
+}
+
+[data-concept="reading-room"] .activity-meta,
+[data-concept="reading-room"] .activity-source {
+  color: var(--color-neutral);
+  font-size: var(--text-sm);
+  font-variant-numeric: tabular-nums;
+}
+
+[data-concept="reading-room"] .activity-source {
+  justify-self: end;
+}
+
+[data-concept="reading-room"] .writing {
+  padding-block: var(--space-xl);
+  border-block: var(--rule-hair) solid var(--color-rule);
+}
+
+[data-concept="reading-room"] .foot-dense {
+  width: min(100% - 2rem, 72rem);
+  margin-inline: auto;
+  padding-block: var(--space-xl) max(var(--space-xl), env(safe-area-inset-bottom));
+  border-block-start: var(--rule-hair) solid var(--color-ink);
+  color: var(--color-neutral);
+  font-size: var(--text-sm);
+  line-height: 1.8;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  [data-concept="reading-room"] a:hover {
+    color: var(--color-accent);
+    text-decoration-thickness: var(--rule-heavy);
+  }
+}
+
+@media (min-width: 40rem) {
+  [data-concept="reading-room"] .nav-mast,
+  [data-concept="reading-room"] .reading-room,
+  [data-concept="reading-room"] .foot-dense {
+    width: min(100% - 4rem, var(--concept-max, 72rem));
+  }
+
+  [data-concept="reading-room"] .reading-room {
+    --concept-max: 46rem;
+  }
+}

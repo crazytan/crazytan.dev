@@ -1,0 +1,104 @@
+---
+import { getCollection } from 'astro:content';
+import ConceptBase from '../../layouts/ConceptBase.astro';
+import '../../styles/concepts/personal-index.css';
+
+const projects = (await getCollection('projects')).sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
+---
+
+<ConceptBase
+  title="Personal Index — crazytan concept"
+  description="A cool, austere index direction for crazytan.dev."
+  concept="personal-index"
+  googleFonts="https://fonts.googleapis.com/css2?family=Geist:wght@400;700&display=swap"
+  fontshareFonts="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,800&display=swap"
+>
+  <nav class="nav-rail" aria-label="Section navigation">
+    <a class="rail-wordmark" href="/concepts/personal-index/">crazytan</a>
+    <div class="rail-links">
+      <a href="#work">Work</a>
+      <a href="#now">Now</a>
+      <a href="#writing">Writing</a>
+    </div>
+  </nav>
+
+  <main class="index-page">
+    <header class="index-intro">
+      <p class="index-kicker">Personal index · Updated when there is something worth adding</p>
+      <h1>Security engineer. Maker of KeeForge and TaskMenu.</h1>
+      <p>This is a compact record of projects, current media, and writing. No feed, no dashboard, no performance of busyness.</p>
+    </header>
+
+    <section id="work" class="index-section" aria-labelledby="work-index-title">
+      <header>
+        <h2 id="work-index-title">Work</h2>
+        <p>{projects.length} projects</p>
+      </header>
+      <ol class="index-list project-index">
+        {projects.map((project) => (
+          <li>
+            <a href={project.data.url}>
+              <span class="row-name">{project.data.title}</span>
+              <span class="row-detail">{project.data.description}</span>
+              <span class="row-meta">{project.data.tags.join(' · ')}</span>
+              <span class="row-action" aria-hidden="true">↗</span>
+            </a>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <section id="now" class="index-section" aria-labelledby="now-index-title">
+      <header>
+        <h2 id="now-index-title">Now</h2>
+        <p>External sources</p>
+      </header>
+      <dl class="index-list source-index">
+        <div>
+          <dt>Reading</dt>
+          <dd>—</dd>
+          <dd class="source-note">Goodreads source not connected</dd>
+        </div>
+        <div>
+          <dt>Watching</dt>
+          <dd>—</dd>
+          <dd class="source-note">Douban source not connected</dd>
+        </div>
+        <div>
+          <dt>Playing</dt>
+          <dd>—</dd>
+          <dd class="source-note">Douban source not connected</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section id="writing" class="index-section" aria-labelledby="writing-index-title">
+      <header>
+        <h2 id="writing-index-title">Writing</h2>
+        <p>Archive</p>
+      </header>
+      <div class="empty-row">
+        <span>No posts yet</span>
+        <span>The first entry will create the archive.</span>
+      </div>
+    </section>
+
+    <section class="index-section elsewhere" aria-labelledby="elsewhere-title">
+      <header>
+        <h2 id="elsewhere-title">Elsewhere</h2>
+        <p>Links</p>
+      </header>
+      <nav aria-label="Social profiles">
+        <a href="https://github.com/crazytan">GitHub ↗</a>
+        <a href="https://x.com/_crazytan">X ↗</a>
+        <a href="https://linkedin.com/in/crazytan">LinkedIn ↗</a>
+        <a href="#" data-email="dGp0YW5qaWEudGFuQGdtYWlsLmNvbQ==">Email ↗</a>
+      </nav>
+    </section>
+  </main>
+
+  <footer class="foot-line">
+    <p>crazytan.dev · Astro · 2026</p>
+    <a href="/concepts/">Compare concepts</a>
+  </footer>
+</ConceptBase>

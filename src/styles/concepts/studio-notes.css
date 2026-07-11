@@ -1,0 +1,281 @@
+/* Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V5 · genre: editorial · tone: balanced restraint · macrostructure: Split Studio · theme: Studio · enrichment: none · nav: N9 · footer: Ft6 · contrast: pass (40–41) · slop: pass (42–45) · honest: pass (46) · chrome: pass (47) · tokens: pass (48) · responsive: pass (49) · icons: pass (30) · mobile: pass (34, 49, 50–57) */
+[data-concept="studio-notes"] .nav-edge {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-lg);
+  width: min(100% - 2rem, 78rem);
+  margin-inline: auto;
+  padding-block: var(--space-lg);
+}
+
+[data-concept="studio-notes"] .wordmark {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  font-family: var(--font-wordmark);
+  font-size: var(--text-lg);
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+[data-concept="studio-notes"] .contact-link,
+[data-concept="studio-notes"] .cta-outline {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-ink);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+[data-concept="studio-notes"] .contact-link {
+  border-block-end: var(--rule-hair) solid var(--color-ink);
+}
+
+[data-concept="studio-notes"] main {
+  width: min(100% - 2rem, 78rem);
+  margin-inline: auto;
+}
+
+[data-concept="studio-notes"] .hero-split {
+  display: grid;
+  gap: var(--space-2xl);
+  align-items: end;
+  padding-block: var(--space-3xl) var(--space-4xl);
+}
+
+[data-concept="studio-notes"] .hero-copy {
+  display: grid;
+  justify-items: start;
+  gap: var(--space-lg);
+}
+
+[data-concept="studio-notes"] .hero-copy h1 {
+  max-width: 14ch;
+  font-family: var(--font-display);
+  font-size: var(--text-display-s);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+}
+
+[data-concept="studio-notes"] .hero-copy > p {
+  max-width: 48ch;
+  color: var(--color-neutral);
+}
+
+[data-concept="studio-notes"] .cta-outline {
+  padding-inline: var(--space-md);
+  border: var(--rule-hair) solid var(--color-ink);
+}
+
+[data-concept="studio-notes"] .currently {
+  display: grid;
+  gap: var(--space-xl);
+  align-self: stretch;
+  padding: var(--space-xl);
+  border-block-start: var(--rule-hair) solid var(--color-accent);
+  background: var(--color-paper-2);
+  color: var(--color-ink);
+}
+
+[data-concept="studio-notes"] .currently-title {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+}
+
+[data-concept="studio-notes"] .currently dl,
+[data-concept="studio-notes"] .project-proof {
+  display: grid;
+}
+
+[data-concept="studio-notes"] .currently dl > div,
+[data-concept="studio-notes"] .project-proof > div {
+  display: grid;
+  gap: var(--space-xs);
+  padding-block: var(--space-md);
+  border-block-start: var(--rule-hair) solid var(--color-rule);
+}
+
+[data-concept="studio-notes"] dt {
+  color: var(--color-ink-2);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+[data-concept="studio-notes"] dd {
+  color: var(--color-neutral);
+}
+
+[data-concept="studio-notes"] .project-stage {
+  display: grid;
+  gap: var(--space-3xl);
+  padding-block: var(--space-3xl) var(--space-4xl);
+  border-block-start: var(--rule-hair) solid var(--color-rule);
+}
+
+[data-concept="studio-notes"] .stage-head {
+  display: grid;
+  gap: var(--space-sm);
+  max-width: 40rem;
+}
+
+[data-concept="studio-notes"] .stage-head h2,
+[data-concept="studio-notes"] .notes-split h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1.06;
+}
+
+[data-concept="studio-notes"] .stage-head p,
+[data-concept="studio-notes"] .notes-split > div:first-child p {
+  max-width: 48ch;
+  color: var(--color-neutral);
+}
+
+[data-concept="studio-notes"] .project-splits {
+  display: grid;
+  gap: var(--space-4xl);
+}
+
+[data-concept="studio-notes"] .project-split {
+  display: grid;
+  gap: var(--space-2xl);
+  align-items: stretch;
+}
+
+[data-concept="studio-notes"] .project-copy {
+  display: grid;
+  align-content: start;
+  justify-items: start;
+  gap: var(--space-lg);
+}
+
+[data-concept="studio-notes"] .project-copy h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+}
+
+[data-concept="studio-notes"] .project-copy p {
+  max-width: 50ch;
+  color: var(--color-neutral);
+}
+
+[data-concept="studio-notes"] .project-proof {
+  align-content: center;
+  padding: var(--space-xl);
+  background: var(--color-paper-2);
+  color: var(--color-ink);
+}
+
+[data-concept="studio-notes"] .notes-split {
+  display: grid;
+  gap: var(--space-2xl);
+  padding-block: var(--space-3xl);
+  border-block: var(--rule-hair) solid var(--color-rule);
+}
+
+[data-concept="studio-notes"] .notes-split > div:first-child {
+  display: grid;
+  gap: var(--space-md);
+}
+
+[data-concept="studio-notes"] .notes-empty {
+  display: grid;
+  gap: var(--space-xs);
+  align-content: end;
+  min-height: 12rem;
+  padding: var(--space-xl);
+  background: var(--color-paper-2);
+  color: var(--color-ink);
+}
+
+[data-concept="studio-notes"] .notes-empty p {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+}
+
+[data-concept="studio-notes"] .notes-empty span {
+  color: var(--color-neutral);
+}
+
+[data-concept="studio-notes"] .foot-letter {
+  display: grid;
+  gap: var(--space-xl);
+  width: min(100% - 2rem, 78rem);
+  margin-inline: auto;
+  padding-block: var(--space-4xl) max(var(--space-xl), env(safe-area-inset-bottom));
+}
+
+[data-concept="studio-notes"] .foot-letter-close {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  line-height: 1.35;
+}
+
+[data-concept="studio-notes"] .foot-letter-close span {
+  color: var(--color-accent);
+}
+
+[data-concept="studio-notes"] .foot-letter-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs) var(--space-sm);
+  color: var(--color-neutral);
+  font-size: var(--text-sm);
+}
+
+[data-concept="studio-notes"] .foot-letter-links a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  [data-concept="studio-notes"] a:hover {
+    color: var(--color-accent);
+  }
+
+  [data-concept="studio-notes"] .cta-outline:hover {
+    border-color: var(--color-accent);
+  }
+}
+
+@media (min-width: 40rem) {
+  [data-concept="studio-notes"] .nav-edge,
+  [data-concept="studio-notes"] main,
+  [data-concept="studio-notes"] .foot-letter {
+    width: min(100% - 4rem, 78rem);
+  }
+}
+
+@media (min-width: 60rem) {
+  [data-concept="studio-notes"] .hero-split,
+  [data-concept="studio-notes"] .project-split,
+  [data-concept="studio-notes"] .notes-split {
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+  }
+
+  [data-concept="studio-notes"] .project-split.reverse .project-copy {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  [data-concept="studio-notes"] .project-split.reverse .project-proof {
+    grid-column: 1;
+    grid-row: 1;
+  }
+}

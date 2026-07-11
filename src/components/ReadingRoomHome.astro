@@ -1,0 +1,111 @@
+---
+import { getCollection } from 'astro:content';
+import { formatActivityDate, formatUpdatedAt, getExternalActivity } from '../lib/externalActivity';
+
+interface Props {
+  showConceptLink?: boolean;
+}
+
+const { showConceptLink = false } = Astro.props;
+const projects = (await getCollection('projects')).sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
+const activity = await getExternalActivity();
+
+const bookDate = formatActivityDate(activity.book.date);
+const movieDate = formatActivityDate(activity.movie.date);
+const gameDate = formatActivityDate(activity.game.date);
+---
+
+<header class="nav-mast">
+  <p class="mast-line">Personal notes · Security, software, culture · 2026</p>
+  <p class="mast-name">crazytan</p>
+  <nav class="mast-nav" aria-label="Primary navigation">
+    <a href="#work">Work</a>
+    <a href="#now">Now</a>
+    <a href="#writing">Writing</a>
+  </nav>
+  <div class="mast-rule" aria-hidden="true"></div>
+</header>
+
+<main>
+  <article class="reading-room">
+    <header class="opening">
+      <h1>Software, security, and the things around them.</h1>
+      <p class="lede">I’m a security engineer. I build useful software that respects privacy, and keep notes on what I’m making, reading, watching, and playing.</p>
+    </header>
+
+    <section id="work" class="prose-section" aria-labelledby="work-title">
+      <h2 id="work-title">Selected work.</h2>
+      <p>The current shelf is small and deliberate: native tools, open source where possible, and no appetite for tracking people.</p>
+
+      <div class="project-list">
+        {projects.map((project) => (
+          <article class="project-entry">
+            <div class="project-heading">
+              <h3><a href={project.data.url} target="_blank" rel="noopener noreferrer">{project.data.title}</a></h3>
+              <span>{project.data.badges.map((badge) => badge.text).join(' · ')}</span>
+            </div>
+            <p>{project.data.description}</p>
+            <p class="project-tags">{project.data.tags.join(' · ')}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section id="now" class="prose-section" aria-labelledby="now-title">
+      <h2 id="now-title">On the nightstand and nearby.</h2>
+      <p>The latest entry from Goodreads, plus the newest movie and game activity from Douban.</p>
+
+      <dl class="shelf">
+        <div>
+          <dt>Book</dt>
+          <dd class="activity-detail">
+            <a class="activity-title" href={activity.book.url} target="_blank" rel="noopener noreferrer">{activity.book.title}</a>
+            <span class="activity-meta">
+              {activity.book.creator && <span>{activity.book.creator} · </span>}
+              {activity.book.status}{bookDate && <span> · <time datetime={activity.book.date}>{bookDate}</time></span>}
+            </span>
+          </dd>
+        </div>
+        <div>
+          <dt>Movie</dt>
+          <dd class="activity-detail">
+            <a class="activity-title" href={activity.movie.url} target="_blank" rel="noopener noreferrer">{activity.movie.title}</a>
+            <span class="activity-meta">
+              {activity.movie.status}{movieDate && <span> · <time datetime={activity.movie.date}>{movieDate}</time></span>}
+            </span>
+          </dd>
+        </div>
+        <div>
+          <dt>Game</dt>
+          <dd class="activity-detail">
+            <a class="activity-title" href={activity.game.url} target="_blank" rel="noopener noreferrer">{activity.game.title}</a>
+            <span class="activity-meta">
+              {activity.game.status}{gameDate && <span> · <time datetime={activity.game.date}>{gameDate}</time></span>}
+            </span>
+          </dd>
+        </div>
+      </dl>
+      <p class="activity-source">
+        {activity.hasFallback ? 'Cached snapshot' : 'Updated from Goodreads and Douban'} · {formatUpdatedAt(activity.updatedAt)}
+      </p>
+    </section>
+
+    <section id="writing" class="prose-section writing" aria-labelledby="writing-title">
+      <h2 id="writing-title">Notes, when there are notes.</h2>
+      <p>No posts yet. The blog can begin as a quiet archive rather than an obligation to publish on a schedule.</p>
+    </section>
+  </article>
+</main>
+
+<footer class="foot-dense">
+  <p>
+    crazytan.dev is built with Astro and set as a small personal publication. Find me on
+    <a href="https://github.com/crazytan" target="_blank" rel="noopener noreferrer">GitHub</a>,
+    <a href="https://x.com/_crazytan" target="_blank" rel="noopener noreferrer">X</a>, and
+    <a href="https://linkedin.com/in/crazytan" target="_blank" rel="noopener noreferrer">LinkedIn</a>, or
+    <a href="#" data-email="dGp0YW5qaWEudGFuQGdtYWlsLmNvbQ==">send an email</a>.
+    If something here is useful, you can <a href="https://github.com/sponsors/crazytan" target="_blank" rel="noopener noreferrer">sponsor my open-source work</a>
+    or <a href="https://buymeacoffee.com/crazytan" target="_blank" rel="noopener noreferrer">buy me a coffee</a>.
+    {showConceptLink && <a href="/concepts/">Compare the other concepts</a>}
+  </p>
+</footer>

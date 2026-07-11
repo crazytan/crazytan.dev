@@ -1,0 +1,38 @@
+[
+  {
+    "date": "2026-07-10",
+    "macrostructure": "Long Document",
+    "theme": "Newsprint",
+    "enrichment": "none",
+    "brief": "crazytan.dev production homepage — selected Reading Room concept",
+    "nav": "N6",
+    "footer": "Ft4"
+  },
+  {
+    "date": "2026-07-09",
+    "macrostructure": "Index-First",
+    "theme": "Almanac",
+    "enrichment": "none",
+    "brief": "crazytan.dev concept — cool austere personal index",
+    "nav": "N3",
+    "footer": "Ft2"
+  },
+  {
+    "date": "2026-07-09",
+    "macrostructure": "Split Studio",
+    "theme": "Studio",
+    "enrichment": "none",
+    "brief": "crazytan.dev concept — balanced editorial studio",
+    "nav": "N9",
+    "footer": "Ft6"
+  },
+  {
+    "date": "2026-07-09",
+    "macrostructure": "Long Document",
+    "theme": "Newsprint",
+    "enrichment": "none",
+    "brief": "crazytan.dev concept — warm editorial reading room",
+    "nav": "N6",
+    "footer": "Ft4"
+  }
+]

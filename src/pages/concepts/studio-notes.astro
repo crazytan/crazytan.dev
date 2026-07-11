@@ -1,0 +1,97 @@
+---
+import { getCollection } from 'astro:content';
+import ConceptBase from '../../layouts/ConceptBase.astro';
+import '../../styles/concepts/studio-notes.css';
+
+const projects = (await getCollection('projects')).sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
+---
+
+<ConceptBase
+  title="Studio Notes — crazytan concept"
+  description="A balanced editorial-austere direction for crazytan.dev."
+  concept="studio-notes"
+  googleFonts="https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap"
+  fontshareFonts="https://api.fontshare.com/v2/css?f[]=switzer@400,600&display=swap"
+>
+  <header class="nav-edge">
+    <a class="wordmark" href="/concepts/studio-notes/" aria-label="crazytan home">crazytan</a>
+    <a class="contact-link" href="#" data-email="dGp0YW5qaWEudGFuQGdtYWlsLmNvbQ==">Email ↗</a>
+  </header>
+
+  <main>
+    <section class="hero-split" aria-labelledby="studio-title">
+      <div class="hero-copy">
+        <h1 id="studio-title">Security engineer. Building things that respect privacy.</h1>
+        <p>A personal studio for native software, open-source projects, occasional writing, and whatever currently has my attention.</p>
+        <a class="cta-outline" href="#projects">See the work →</a>
+      </div>
+
+      <aside class="currently" aria-label="Current reading and media">
+        <p class="currently-title">Currently</p>
+        <dl>
+          <div>
+            <dt>Reading</dt>
+            <dd>Goodreads source not connected</dd>
+          </div>
+          <div>
+            <dt>Watching</dt>
+            <dd>Douban source not connected</dd>
+          </div>
+          <div>
+            <dt>Playing</dt>
+            <dd>Douban source not connected</dd>
+          </div>
+        </dl>
+      </aside>
+    </section>
+
+    <section id="projects" class="project-stage" aria-labelledby="projects-title">
+      <header class="stage-head">
+        <h2 id="projects-title">Selected projects</h2>
+        <p>Small tools with a clear job and a preference for native platforms.</p>
+      </header>
+
+      <div class="project-splits">
+        {projects.map((project, index) => (
+          <article class:list={['project-split', { reverse: index % 2 === 1 }]}>
+            <div class="project-copy">
+              <h3>{project.data.title}</h3>
+              <p>{project.data.description}</p>
+              <a class="cta-outline" href={project.data.url}>Open {project.data.title} ↗</a>
+            </div>
+            <dl class="project-proof">
+              <div>
+                <dt>Platform</dt>
+                <dd>{project.data.tags.filter((tag) => ['iOS', 'macOS'].includes(tag)).join(' · ') || 'Native'}</dd>
+              </div>
+              <div>
+                <dt>Built with</dt>
+                <dd>{project.data.tags.filter((tag) => !['iOS', 'macOS'].includes(tag)).join(' · ')}</dd>
+              </div>
+              <div>
+                <dt>Available</dt>
+                <dd>{project.data.badges.map((badge) => badge.text).join(' · ')}</dd>
+              </div>
+            </dl>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="notes-split" aria-labelledby="notes-title">
+      <div>
+        <h2 id="notes-title">Notes, eventually.</h2>
+        <p>The blog can stay deliberately small: release notes, technical discoveries, and the occasional longer piece.</p>
+      </div>
+      <div class="notes-empty">
+        <p>No posts yet.</p>
+        <span>The archive will appear here when the first entry is published.</span>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot-letter">
+    <p class="foot-letter-close">Thanks for visiting.<br /><span>— crazytan</span></p>
+    <p class="foot-letter-links"><a href="https://github.com/crazytan">GitHub</a> · <a href="https://x.com/_crazytan">X</a> · <a href="https://linkedin.com/in/crazytan">LinkedIn</a> · <a href="/concepts/">Compare concepts</a></p>
+  </footer>
+</ConceptBase>

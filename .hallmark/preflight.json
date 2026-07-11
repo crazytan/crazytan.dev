@@ -1,0 +1,45 @@
+{
+  "scanned_at": "2026-07-10",
+  "framework": {
+    "name": "Astro",
+    "version": "^5.7.10",
+    "source": "package.json:10"
+  },
+  "font_stack": {
+    "display": "Inter",
+    "mono": "JetBrains Mono",
+    "source": "src/layouts/Base.astro:18-20"
+  },
+  "palette": {
+    "format": "hex custom properties",
+    "mode": "dark",
+    "source": "src/layouts/Base.astro:32-42"
+  },
+  "motion": {
+    "stance": "motion-cut",
+    "library": null,
+    "source": "package.json:9-11"
+  },
+  "spacing": {
+    "system": "ad hoc pixel values",
+    "source": "src/layouts/Base.astro; src/pages/index.astro; src/components/ProjectCard.astro"
+  },
+  "content_model": {
+    "projects": "Astro content collection",
+    "external_activity": "Goodreads and Douban RSS parsed at build time",
+    "source": "src/content.config.ts:4-18; src/lib/externalActivity.ts"
+  },
+  "preserve": [
+    "Astro framework",
+    "project content collection",
+    "single-page route",
+    "existing social and email destinations"
+  ],
+  "replace_or_extend": [
+    "dark visual palette",
+    "typographic system",
+    "spacing tokens",
+    "page macrostructure",
+    "content collections for books, movies, games, and blog"
+  ]
+}

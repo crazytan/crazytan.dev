@@ -1,0 +1,187 @@
+---
+import ConceptBase from '../../layouts/ConceptBase.astro';
+
+const concepts = [
+  {
+    name: 'Reading Room',
+    href: '/concepts/reading-room/',
+    position: 'Warm editorial',
+    description: 'A personal publication with a newspaper masthead and long-form reading rhythm.',
+  },
+  {
+    name: 'Studio Notes',
+    href: '/concepts/studio-notes/',
+    position: 'Balanced',
+    description: 'A spacious diptych that pairs each part of your story with concrete work or current interests.',
+  },
+  {
+    name: 'Personal Index',
+    href: '/concepts/personal-index/',
+    position: 'Cool austere',
+    description: 'A compact, structured archive where links and rows do all of the visual work.',
+  },
+];
+---
+
+<ConceptBase
+  title="crazytan.dev — design concepts"
+  description="Three light, elegant design directions for crazytan.dev."
+  concept="chooser"
+  googleFonts="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=Newsreader:opsz,wght@6..72,300;6..72,700&display=swap"
+>
+  <main class="chooser">
+    <header class="chooser-head">
+      <p>crazytan.dev · Design study</p>
+      <h1>Three ways to make the same person legible.</h1>
+      <div>
+        <p>Each concept uses the same real projects and the same honest empty states for Goodreads, Douban, and the blog. Only the structure, typography, and rhythm change.</p>
+        <a href="/">Current homepage ↗</a>
+      </div>
+    </header>
+
+    <div class="concept-grid">
+      {concepts.map((concept) => (
+        <article class="concept-card">
+          <div class="concept-meta">
+            <span>{concept.position}</span>
+            <h2><a href={concept.href}>{concept.name}</a></h2>
+            <p>{concept.description}</p>
+            <a class="open-link" href={concept.href}>Open full concept →</a>
+          </div>
+          <figure>
+            <iframe src={concept.href} title={`${concept.name} preview`} loading="lazy"></iframe>
+          </figure>
+        </article>
+      ))}
+    </div>
+  </main>
+</ConceptBase>
+
+<style>
+  /* Hallmark · utility comparison page · real iframe previews, no decorative chrome */
+  .chooser {
+    width: min(100% - 2rem, 96rem);
+    margin-inline: auto;
+    padding-block: var(--space-2xl) var(--space-4xl);
+  }
+
+  .chooser-head {
+    display: grid;
+    gap: var(--space-lg);
+    padding-block-end: var(--space-3xl);
+  }
+
+  .chooser-head > p:first-child,
+  .concept-meta > span {
+    color: var(--color-neutral);
+    font-size: var(--text-sm);
+  }
+
+  .chooser-head h1 {
+    max-width: 18ch;
+    font-family: var(--font-display);
+    font-size: var(--text-display-s);
+    font-weight: 300;
+    letter-spacing: -0.035em;
+    line-height: 1.04;
+  }
+
+  .chooser-head > div {
+    display: grid;
+    gap: var(--space-lg);
+  }
+
+  .chooser-head > div p {
+    max-width: 62ch;
+    color: var(--color-neutral);
+  }
+
+  .chooser a {
+    color: var(--color-ink);
+    text-underline-offset: var(--space-3xs);
+  }
+
+  .chooser-head a,
+  .open-link {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+    justify-self: start;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .concept-grid {
+    display: grid;
+    gap: var(--space-3xl);
+  }
+
+  .concept-card {
+    display: grid;
+    gap: var(--space-xl);
+    padding-block-start: var(--space-xl);
+    border-block-start: var(--rule-hair) solid var(--color-ink);
+  }
+
+  .concept-meta {
+    display: grid;
+    align-content: start;
+    justify-items: start;
+    gap: var(--space-md);
+  }
+
+  .concept-meta h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+  }
+
+  .concept-meta h2 a {
+    text-decoration: none;
+  }
+
+  .concept-meta p {
+    max-width: 45ch;
+    color: var(--color-neutral);
+  }
+
+  .concept-card figure {
+    min-width: 0;
+    border: var(--rule-hair) solid var(--color-rule-2);
+    background: var(--color-paper-2);
+  }
+
+  .concept-card iframe {
+    display: block;
+    width: 100%;
+    height: 34rem;
+    border: 0;
+    background: var(--color-paper);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .chooser a:hover {
+      color: var(--color-accent);
+    }
+  }
+
+  @media (min-width: 40rem) {
+    .chooser {
+      width: min(100% - 4rem, 96rem);
+    }
+
+    .chooser-head > div {
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: end;
+    }
+  }
+
+  @media (min-width: 60rem) {
+    .concept-card {
+      grid-template-columns: minmax(16rem, 0.32fr) minmax(0, 1fr);
+      gap: var(--space-2xl);
+    }
+  }
+</style>
