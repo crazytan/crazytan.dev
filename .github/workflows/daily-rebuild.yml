@@ -1,0 +1,19 @@
+name: Daily website rebuild
+
+on:
+  schedule:
+    - cron: "17 3 * * *"
+      timezone: "America/Los_Angeles"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Cloudflare Pages build
+        env:
+          DEPLOY_HOOK: ${{ secrets.CLOUDFLARE_DEPLOY_HOOK }}
+        run: curl --fail-with-body --request POST "$DEPLOY_HOOK"
