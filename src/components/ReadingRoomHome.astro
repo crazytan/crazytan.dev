@@ -18,10 +18,15 @@ const gameDate = formatActivityDate(activity.game.date);
 <header class="nav-mast">
   <p class="mast-line">Personal notes · Security, software, culture · 2026</p>
   <p class="mast-name">crazytan</p>
-  <nav class="mast-nav" aria-label="Primary navigation">
+  <nav class="mast-nav" aria-label="Site and social navigation">
     <a href="#work">Work</a>
     <a href="#now">Now</a>
     <a href="#writing">Writing</a>
+    <span class="mast-nav-divider" aria-hidden="true">·</span>
+    <a class="mast-social-link" href="https://github.com/crazytan" target="_blank" rel="noopener noreferrer">GitHub</a>
+    <a class="mast-social-link" href="https://x.com/_crazytan" target="_blank" rel="noopener noreferrer">X</a>
+    <a class="mast-social-link" href="https://linkedin.com/in/crazytan" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    <a class="mast-social-link" href="#" data-email="dGp0YW5qaWEudGFuQGdtYWlsLmNvbQ==">Email</a>
   </nav>
   <div class="mast-rule" aria-hidden="true"></div>
 </header>
@@ -42,13 +47,33 @@ const gameDate = formatActivityDate(activity.game.date);
           <article class="project-entry">
             <div class="project-heading">
               <h3><a href={project.data.url} target="_blank" rel="noopener noreferrer">{project.data.title}</a></h3>
-              <span>{project.data.badges.map((badge) => badge.text).join(' · ')}</span>
+              <div class="project-links" aria-label={`${project.data.title} links and status`}>
+                {project.data.badges.map((badge, index) => (
+                  <>
+                    {index > 0 && <span class="project-link-separator" aria-hidden="true">·</span>}
+                    {badge.url ? (
+                      <a href={badge.url} target="_blank" rel="noopener noreferrer">{badge.text}</a>
+                    ) : (
+                      <span>{badge.text}</span>
+                    )}
+                  </>
+                ))}
+              </div>
             </div>
             <p>{project.data.description}</p>
             <p class="project-tags">{project.data.tags.join(' · ')}</p>
           </article>
         ))}
       </div>
+
+      <aside class="work-support" aria-label="Support the work">
+        <span class="support-label">Support the work</span>
+        <div class="support-links">
+          <a href="https://github.com/sponsors/crazytan" target="_blank" rel="noopener noreferrer">Sponsor on GitHub</a>
+          <span aria-hidden="true">·</span>
+          <a href="https://buymeacoffee.com/crazytan" target="_blank" rel="noopener noreferrer">Buy me a coffee</a>
+        </div>
+      </aside>
     </section>
 
     <section id="now" class="prose-section" aria-labelledby="now-title">
@@ -99,13 +124,7 @@ const gameDate = formatActivityDate(activity.game.date);
 
 <footer class="foot-dense">
   <p>
-    crazytan.dev is built with Astro and set as a small personal publication. Find me on
-    <a href="https://github.com/crazytan" target="_blank" rel="noopener noreferrer">GitHub</a>,
-    <a href="https://x.com/_crazytan" target="_blank" rel="noopener noreferrer">X</a>, and
-    <a href="https://linkedin.com/in/crazytan" target="_blank" rel="noopener noreferrer">LinkedIn</a>, or
-    <a href="#" data-email="dGp0YW5qaWEudGFuQGdtYWlsLmNvbQ==">send an email</a>.
-    If something here is useful, you can <a href="https://github.com/sponsors/crazytan" target="_blank" rel="noopener noreferrer">sponsor my open-source work</a>
-    or <a href="https://buymeacoffee.com/crazytan" target="_blank" rel="noopener noreferrer">buy me a coffee</a>.
+    crazytan.dev is built with Astro and set as a small personal publication.
     {showConceptLink && <a href="/concepts/">Compare the other concepts</a>}
   </p>
 </footer>

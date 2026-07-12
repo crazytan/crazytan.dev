@@ -27,11 +27,13 @@
 [data-concept="reading-room"] .mast-nav {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   justify-content: center;
-  gap: var(--space-xs) var(--space-lg);
+  gap: 0 var(--space-md);
 }
 
 [data-concept="reading-room"] .mast-nav a,
+[data-concept="reading-room"] .work-support a,
 [data-concept="reading-room"] .foot-dense a {
   display: inline-flex;
   min-height: 44px;
@@ -44,6 +46,16 @@
   text-decoration-thickness: var(--rule-hair);
   text-underline-offset: var(--space-3xs);
   white-space: nowrap;
+}
+
+[data-concept="reading-room"] .mast-nav-divider {
+  color: var(--color-rule-2);
+}
+
+[data-concept="reading-room"] .mast-nav .mast-social-link {
+  color: var(--color-neutral);
+  font-size: var(--text-xs);
+  font-weight: 400;
 }
 
 [data-concept="reading-room"] .mast-rule {
@@ -136,7 +148,7 @@
   white-space: nowrap;
 }
 
-[data-concept="reading-room"] .project-heading span,
+[data-concept="reading-room"] .project-links,
 [data-concept="reading-room"] .project-tags {
   color: var(--color-neutral);
   font-family: var(--font-body);
@@ -144,9 +156,54 @@
   font-variant-numeric: tabular-nums;
 }
 
+[data-concept="reading-room"] .project-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 var(--space-xs);
+}
+
+[data-concept="reading-room"] .project-links a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  white-space: nowrap;
+}
+
+[data-concept="reading-room"] .project-link-separator {
+  color: var(--color-rule-2);
+}
+
 [data-concept="reading-room"] .project-entry > p:not(.project-tags) {
   max-width: 62ch;
   color: var(--color-ink-2);
+}
+
+[data-concept="reading-room"] .work-support {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 var(--space-xl);
+  margin-block-start: var(--space-md);
+  padding-block: var(--space-md);
+  border-block: var(--rule-hair) solid var(--color-rule);
+}
+
+[data-concept="reading-room"] .work-support .support-label {
+  color: var(--color-neutral);
+  font-size: var(--text-sm);
+  font-variant-caps: all-small-caps;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+
+[data-concept="reading-room"] .support-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 var(--space-xs);
+  color: var(--color-ink-2);
+  font-size: var(--text-sm);
 }
 
 [data-concept="reading-room"] .shelf {
@@ -203,7 +260,7 @@
 }
 
 [data-concept="reading-room"] .activity-source {
-  justify-self: end;
+  justify-self: start;
 }
 
 [data-concept="reading-room"] .writing {
