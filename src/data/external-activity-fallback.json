@@ -15,6 +15,14 @@
     "status": "Watched",
     "date": "2026-06-14"
   },
+  "music": {
+    "kind": "music",
+    "title": "Dopesmoker",
+    "creator": "Sleep",
+    "url": "https://music.douban.com/subject/26340057/",
+    "status": "Listened",
+    "date": "2026-06-02"
+  },
   "game": {
     "kind": "game",
     "title": "007 初露锋芒 007 First Light",

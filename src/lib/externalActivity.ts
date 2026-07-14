@@ -11,7 +11,7 @@ const parser = new XMLParser({
   trimValues: true,
 });
 
-export type ActivityKind = 'book' | 'movie' | 'game';
+export type ActivityKind = 'book' | 'movie' | 'music' | 'game';
 
 export interface ActivityItem {
   kind: ActivityKind;
@@ -25,6 +25,7 @@ export interface ActivityItem {
 export interface ExternalActivity {
   book: ActivityItem;
   movie: ActivityItem;
+  music: ActivityItem;
   game: ActivityItem;
   updatedAt: string;
   hasFallback: boolean;
@@ -43,6 +44,7 @@ const fallback: ExternalActivity = {
   ...fallbackData,
   book: { ...fallbackData.book, kind: 'book' },
   movie: { ...fallbackData.movie, kind: 'movie' },
+  music: { ...fallbackData.music, kind: 'music' },
   game: { ...fallbackData.game, kind: 'game' },
   hasFallback: true,
 };
@@ -134,6 +136,12 @@ const gameStates = [
   ['想玩', 'Want to play'],
 ] as const;
 
+const musicStates = [
+  ['在听', 'Listening'],
+  ['听过', 'Listened'],
+  ['想听', 'Want to listen'],
+] as const;
+
 function normalizeDouban(item: RssItem): ActivityItem | undefined {
   const url = text(item.link);
   const rawTitle = text(item.title);
@@ -141,12 +149,14 @@ function normalizeDouban(item: RssItem): ActivityItem | undefined {
 
   const kind: ActivityKind | undefined = url.includes('movie.douban.com/subject/')
     ? 'movie'
+    : url.includes('music.douban.com/subject/')
+      ? 'music'
     : url.includes('/game/')
       ? 'game'
       : undefined;
   if (!kind) return undefined;
 
-  const states = kind === 'movie' ? movieStates : gameStates;
+  const states = kind === 'movie' ? movieStates : kind === 'music' ? musicStates : gameStates;
   const match = states.find(([prefix]) => rawTitle.startsWith(prefix));
   const title = match ? rawTitle.slice(match[0].length).trim() : rawTitle;
 
@@ -154,17 +164,18 @@ function normalizeDouban(item: RssItem): ActivityItem | undefined {
     kind,
     title,
     url: url.replace('http://', 'https://'),
-    status: match?.[1] ?? (kind === 'movie' ? 'Movie activity' : 'Game activity'),
+    status: match?.[1] ?? `${kind[0].toUpperCase()}${kind.slice(1)} activity`,
     date: isoDate(item.pubDate),
   };
 }
 
-async function loadDouban(): Promise<{ movie: ActivityItem; game: ActivityItem }> {
+async function loadDouban(): Promise<{ movie: ActivityItem; music: ActivityItem; game: ActivityItem }> {
   const items = itemsFrom(await fetchFeed(DOUBAN_INTERESTS_URL));
   const normalized = items.map(normalizeDouban).filter((item): item is ActivityItem => Boolean(item));
 
   return {
     movie: normalized.find((item) => item.kind === 'movie') ?? fallback.movie,
+    music: normalized.find((item) => item.kind === 'music') ?? fallback.music,
     game: normalized.find((item) => item.kind === 'game') ?? fallback.game,
   };
 }
@@ -174,12 +185,13 @@ async function loadExternalActivity(): Promise<ExternalActivity> {
   const book = bookResult.status === 'fulfilled' ? bookResult.value : fallback.book;
   const douban = doubanResult.status === 'fulfilled'
     ? doubanResult.value
-    : { movie: fallback.movie, game: fallback.game };
+    : { movie: fallback.movie, music: fallback.music, game: fallback.game };
   const hasFallback = bookResult.status === 'rejected' || doubanResult.status === 'rejected';
 
   return {
     book,
     movie: douban.movie,
+    music: douban.music,
     game: douban.game,
     updatedAt: hasFallback ? fallback.updatedAt : new Date().toISOString(),
     hasFallback,

@@ -12,6 +12,7 @@ const activity = await getExternalActivity();
 
 const bookDate = formatActivityDate(activity.book.date);
 const movieDate = formatActivityDate(activity.movie.date);
+const musicDate = formatActivityDate(activity.music.date);
 const gameDate = formatActivityDate(activity.game.date);
 ---
 
@@ -95,6 +96,16 @@ const gameDate = formatActivityDate(activity.game.date);
             <a class="activity-title" href={activity.movie.url} target="_blank" rel="noopener noreferrer">{activity.movie.title}</a>
             <span class="activity-meta">
               {activity.movie.status}{movieDate && <span> · <time datetime={activity.movie.date}>{movieDate}</time></span>}
+            </span>
+          </dd>
+        </div>
+        <div>
+          <dt>Music</dt>
+          <dd class="activity-detail">
+            <a class="activity-title" href={activity.music.url} target="_blank" rel="noopener noreferrer">{activity.music.title}</a>
+            <span class="activity-meta">
+              {activity.music.creator && <span>{activity.music.creator} · </span>}
+              {activity.music.status}{musicDate && <span> · <time datetime={activity.music.date}>{musicDate}</time></span>}
             </span>
           </dd>
         </div>
